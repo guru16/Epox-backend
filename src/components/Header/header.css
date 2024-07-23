@@ -1,0 +1,248 @@
+/* Top Navigation Bar */
+.top-nav-bar {
+  background: #333;
+  height: 60px;
+  padding: 12px 50px;
+}
+
+.search-bar {
+  max-width: 350px;
+}
+
+.search-bar .input-group-text {
+  background-color: transparent;
+  border-radius: 20px;
+  border-right: 0;
+  padding-right: 0;
+}
+
+.search-bar .input-group-text svg path {
+  fill: #fff;
+}
+
+.search-bar .form-control {
+  background-color: transparent;
+  border-left: 0;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.search-bar .form-control::placeholder {
+  color: #fff;
+}
+
+.search-bar .form-control:focus {
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
+  outline: 0;
+  box-shadow: inherit;
+}
+
+.login-info ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+}
+
+.login-info ul li a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.login-info ul li a:hover {
+  color: #cd8f5c;
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-icon .badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #cd8f5c;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+/* Navbar Styles */
+.navbar.app-navbar {
+  background: #000;
+  padding: 0 50px;
+  min-height: 80px;
+}
+.app-navbar .navbar-brand {
+  color: #fff;
+}
+.app-navbar .navbar-brand:hover {
+  color: #fff;
+}
+.app-navbar .navbar-brand span {
+  color: #cd8f5c;
+}
+
+.app-navbar .navbar-nav .nav-link {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: color 0.2s ease;
+  padding: 30px 10px !important;
+  position: relative;
+}
+.app-navbar .navbar-nav li:last-child .nav-link {
+  padding-right: 0 !important;
+}
+.navbar-nav li {
+  position: relative;
+}
+.navbar-nav li:before {
+  content: "";
+  width: 0%;
+  left: 50%;
+  height: 5px;
+  background: #cd8f5c;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+}
+.navbar-nav li:hover:before {
+  width: 100%;
+  opacity: 1;
+  left: 0;
+  right: 0;
+}
+.list-content li .icon {
+  margin-right: 6px;
+}
+.app-navbar .navbar-nav .nav-link.active {
+  color: #cd8f5c;
+}
+.app-navbar .navbar-nav .nav-link:hover {
+  color: #cd8f5c;
+}
+.app-navbar .navbar-nav .dropdown-menu {
+  background: #cd8f5c;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+}
+.app-navbar .navbar-nav .dropdown-item {
+  color: #fff;
+  position: relative;
+  font-size: 16px;
+  padding: 22px 20px;
+}
+.app-navbar .navbar-nav .dropdown-item:hover {
+  color: #fff;
+  background: #b7743e;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+}
+.app-navbar .dropdown-toggle::after {
+  vertical-align: middle;
+}
+.navbar-toggler svg path {
+  color: #fff;
+}
+/* Hover styles for dropdown */
+@media (min-width: 768px) {
+  .navbar-nav .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+
+  .navbar-nav .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mobile view styles */
+@media (max-width: 1200px) {
+  .app-navbar .navbar-nav .nav-link {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 992px) {
+  .search-bar {
+    max-width: 250px;
+  }
+  .md-none {
+    display: none;
+  }
+  .login-info ul {
+    gap: 20px;
+  }
+  .top-nav-bar {
+    padding: 12px 15px 10px 15px;
+  }
+  .navbar-collapse.collapse.show {
+    border-top: 1px solid #1b1b1b;
+  }
+  .navbar.app-navbar {
+    padding: 0;
+  }
+  .navbar.app-navbar .container-fluid {
+    padding: 0;
+  }
+  .nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+
+  .navbar-nav .dropdown-menu {
+    display: none;
+  }
+
+  .navbar-nav .dropdown-menu.show {
+    display: block;
+  }
+
+  .dropdown-submenu > .dropdown-menu {
+    left: 0;
+    margin-left: 1rem;
+  }
+  .app-navbar .navbar-nav .nav-link {
+    padding: 20px !important;
+    border-bottom: 1px solid #1b1b1b;
+    text-align: left;
+  }
+  .app-navbar .navbar-nav li:last-child .nav-link {
+    border-bottom: 0;
+  }
+  .app-navbar .dropdown-toggle::after {
+    position: absolute;
+    right: 37px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .navbar-nav li:before {
+    content: none;
+  }
+}
+@media (max-width: 480px) {
+  .login-info ul {
+    gap: 10px;
+  }
+}

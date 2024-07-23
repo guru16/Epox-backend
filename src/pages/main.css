@@ -1,0 +1,35 @@
+a {
+  text-decoration: none !important;
+}
+ .btn.btn-primary {
+    background-color: #cd8f5c;
+    border-color: #cd8f5c;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    min-width: 170px;
+    font-size: 16px;
+  }
+   .btn.btn-primary:hover,  .btn.btn-primary:active,  .btn.btn-primary:focus,  .btn.btn-primary.btn-primary:active {
+    background-color: #b7743e;
+    border-color: #b7743e;
+  }
+   .btn.btn-outline-primary{
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    min-width: 170px;
+    font-size: 16px;
+  }
+   .btn.btn-outline-primary:hover,  .btn.btn-outline-primary:focus,  .btn.btn-outline-primary:active, .btn-block .btn-outline-primary.active {
+    background-color: #fff !important;
+    border-color: #fff !important;
+    color: #000 !important;
+  }
+ 
