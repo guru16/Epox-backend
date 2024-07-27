@@ -1,25 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PRODUCT_DETAILS } from "../../utils/constants";
 import "../Products/productView.css";
 import ProductImage from "../../../src/assets/images/about_image.webp";
 import product1 from "../../../src/assets/images/product1.webp";
-import product3 from "../../../src/assets/images/product3.webp";
 import product2 from "../../../src/assets/images/product2.webp";
+import product3 from "../../../src/assets/images/product3.webp";
 import ProductReview from "./ProductReview";
 import Breadcrumb from "./Breadcrumb";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
+import "lightbox.js-react/dist/index.css";
+import { SlideshowLightbox, initLightboxJS } from "lightbox.js-react";
 
 const ProductView = () => {
   const [quantity, setQuantity] = useState(1);
-  const [isOpen, setIsOpen] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false); 
+
+  const images = [
+    {
+      src: product1,
+      alt: "Image1",
+    },
+    {
+      src: product2,
+      alt: "Image2",
+    },
+    {
+      src: product3,
+      alt: "Image3",
+    },
+  ];
 
   const handleQuantityChange = (e) => {
     setQuantity(e.target.value);
   };
 
-  const images = [ProductImage, product1, product3, product2];
+  useEffect(() => {
+    initLightboxJS("Insert License Key", "Insert Plan Type Here");
+  }, []); 
 
   const basePrice = 0;
   const productPrice = 19116;
@@ -31,34 +47,16 @@ const ProductView = () => {
         <Breadcrumb />
         <div className="product-content">
           <div className="left-content">
-            <div className="image-gallery" onClick={() => setIsOpen(true)}>
-              <img
-                src={images[photoIndex]}
-                alt="Product"
-                className="main-image"
-              />
+            <div
+              className="image-gallery"
+              onClick={() => {
+                setIsOpen(true);
+              }}
+            >
+              <img src={ProductImage} alt="Product" className="main-image" />
               <div className="overlay">
                 <span className="plus-icon">+</span>
               </div>
-              {isOpen && (
-                <Lightbox
-                  mainSrc={images[photoIndex]}
-                  nextSrc={images[(photoIndex + 1) % images.length]}
-                  prevSrc={
-                    images[(photoIndex + images.length - 1) % images.length]
-                  }
-                  onCloseRequest={() => setIsOpen(false)}
-                  onMovePrevRequest={() =>
-                    setPhotoIndex(
-                      (photoIndex + images.length - 1) % images.length
-                    )
-                  }
-                  onMoveNextRequest={() =>
-                    setPhotoIndex((photoIndex + 1) % images.length)
-                  }
-                  imageCaption={`Image ${photoIndex + 1} of ${images.length}`}
-                />
-              )}
             </div>
           </div>
           <div className="right-content">
@@ -66,9 +64,9 @@ const ProductView = () => {
             <p className="price-range">{PRODUCT_DETAILS.priceRange}</p>
             <div className="product_meta">
               <p className="sku-category">
-                <span> SKU: {PRODUCT_DETAILS.sku}</span>{" "}
+                <span> SKU: {PRODUCT_DETAILS.sku}</span>
                 <span>
-                  Category:{" "}
+                  Category:
                   <span className="text-dark">{PRODUCT_DETAILS.category}</span>
                 </span>
               </p>
@@ -124,7 +122,10 @@ const ProductView = () => {
                     name="flexRadioDefault"
                     id={`sizeOption${index}`}
                   />
-                  <label className="form-check-label" htmlFor={`sizeOption${index}`}>
+                  <label
+                    className="form-check-label"
+                    htmlFor={`sizeOption${index}`}
+                  >
                     <strong>{size.size}</strong>
                     <span>
                       <del>{size.regularPrice}</del>
@@ -166,7 +167,10 @@ const ProductView = () => {
                       name="tableTopFinish"
                       id="semiGlossFinish"
                     />
-                    <label className="form-check-label" htmlFor="semiGlossFinish">
+                    <label
+                      className="form-check-label"
+                      htmlFor="semiGlossFinish"
+                    >
                       Semi-Gloss
                     </label>
                   </div>
@@ -262,6 +266,15 @@ const ProductView = () => {
         </div>
         <ProductReview />
       </div>
+      <SlideshowLightbox
+        images={images}
+        showThumbnails={true}
+        open={isOpen}
+        lightboxIdentifier="lbox1"
+        onClose={() => {
+          setIsOpen(false);
+        }}
+      />
     </div>
   );
 };
