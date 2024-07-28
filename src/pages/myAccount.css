@@ -1,7 +1,7 @@
 .my-account {
   text-align: left;
 }
-.form-main-wrap{
+.form-main-wrap {
   padding: 40px 0 60px;
 }
 .my-account {
@@ -18,11 +18,14 @@
   background-color: #fff;
   padding: 30px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.07);
+  text-align: left;
 }
 
 .form-wrapper h2 {
-  margin-bottom: 20px;
+  font-size: 2rem;
   font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.2;
   color: #333;
 }
 

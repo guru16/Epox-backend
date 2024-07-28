@@ -6,6 +6,8 @@ import Products from '../pages/Products/Products';
 import ProductView from '../pages/Products/ProductView';
 import ContactUs from '../pages/ContactUs';
 import MyAccount from '../pages/MyAccount';
+import Testimonials from '../pages/Testimonials';
+
 const routes = [
   {
     path: '/',
@@ -27,7 +29,12 @@ const routes = [
     path: '/account',
     element: <MyAccount />,
   },
+  {
+    path: '/testimonials',
+    element: <Testimonials />
+  },
   
 ];
 
 export default routes;
+
